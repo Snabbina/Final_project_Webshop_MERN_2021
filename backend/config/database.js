@@ -18,7 +18,7 @@ module.exports = connectDatabase
 
 
 
-// ------ Sätte vi lärt oss på, bara att implemnetera den syntaxen?
+// ------ implementera den syntax sen? -------
 // const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-books";
 // mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 // mongoose.Promise = Promise;
