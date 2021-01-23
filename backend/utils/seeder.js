@@ -3,9 +3,7 @@ const dotenv = require('dotenv')
 const connectDatabase = require('../config/database')
 
 
-// 
-
-
+// created seeder script to post and test data to the API later on
 const products = require('../data/products')
 
 //Setting dotenv filename
