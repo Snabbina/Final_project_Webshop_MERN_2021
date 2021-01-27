@@ -7,7 +7,7 @@ const {
     getSingleProduct, 
     updateProduct,
     deleteProduct
-    
+
 } = require('../controllers/productController')
 
 router.route('/products').get(getProducts) 
@@ -21,5 +21,5 @@ router.route('/admin/product/:id')
 .delete(deleteProduct)
 
 
+module.exports = router
 
-module.exports = router;
