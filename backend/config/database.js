@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 
 const connectDatabase = () => {
-    mongoose.connect(process.env.DB_LOCAL_URI, {
+    mongoose.connect("mongodb://localhost/project-webshop", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
