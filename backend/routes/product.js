@@ -16,6 +16,8 @@ router.route('/product/:id').get(getSingleProduct)
 
 router.route('/admin/product/new').post(newProduct) 
 
+
+//URL is the same therfore on the same line here
 router.route('/admin/product/:id')
 .put(updateProduct)
 .delete(deleteProduct)
