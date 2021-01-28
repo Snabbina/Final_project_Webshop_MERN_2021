@@ -7,7 +7,7 @@ const APIFeatures = require("../utils/apiFeatures")
 //Create new product => /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
-  const product = await Product.create(req.body);
+  const product = await Product.create(req.body)
 
   //Images and links later with Clodunary
   res.status(201).json({
@@ -17,18 +17,26 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Get all products => /api/v1/products?keyword=shirt
+//Calling Search() and Filter() here the logic is found in prodController
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
+
+  const resPerPage = 4;
+  const productCount = await Product.countDocuments()
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
                       .search()
+                      .filter()
+                      .pagination(resPerPage)
+
   const products = await apiFeatures.query
   res.status(200).json({
     success: true,
     count: products.length,
+    productCount,
     products,
-    message: "this route will show all the products in the databas",
-  });
-});
+    message: "this route will show all the products in the databas"
+  })
+})
 
 //Get singel product details =>  /api/v1/product/:id
 exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
@@ -36,11 +44,6 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
 
   if (!product) {
     return next(new ErrorHandler("Product not found", 404));
-
-    // res.status(404).json({
-    //     success: false,
-    //     message:
-    // })
   }
 
   res.status(200).json({
