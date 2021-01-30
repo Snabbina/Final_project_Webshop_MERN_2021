@@ -10,7 +10,9 @@ const {
 
 } = require('../controllers/productController')
 
-router.route('/products').get(getProducts) 
+const { isAuthenticatedUser } = require('../middlewares/auth')
+
+router.route('/products').get(isAuthenticatedUser, getProducts) 
 
 router.route('/product/:id').get(getSingleProduct)
 
