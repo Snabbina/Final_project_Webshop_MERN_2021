@@ -10,19 +10,18 @@ const {
 
 } = require('../controllers/productController')
 
-const { isAuthenticatedUser } = require('../middlewares/auth')
+const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth')
 
-router.route('/products').get(isAuthenticatedUser, getProducts) 
-
+router.route('/products').get(getProducts) 
 router.route('/product/:id').get(getSingleProduct)
 
-router.route('/admin/product/new').post(newProduct) 
-
+//User can never acess this route
+router.route('/admin/product/new').post(isAuthenticatedUser, authorizeRoles('admin'), newProduct) 
 
 //URL is the same therfore on the same line here
 router.route('/admin/product/:id')
-.put(updateProduct)
-.delete(deleteProduct)
+.put(isAuthenticatedUser, authorizeRoles('admin'), updateProduct)
+.delete(isAuthenticatedUser, authorizeRoles('admin'), deleteProduct)
 
 
 module.exports = router
