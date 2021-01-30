@@ -55,6 +55,7 @@ const productSchema = new mongoose.Schema ({
             ],
             message: 'Plz select correct catagory for product'
         },
+    },
     seller: {
         type: String,
         requried: [true, 'Plz enter product seller']
@@ -89,7 +90,6 @@ const productSchema = new mongoose.Schema ({
         type: Date,
         default: Date.now
     },
-    }
 })
     
     module.exports = mongoose.model('Product', productSchema)
