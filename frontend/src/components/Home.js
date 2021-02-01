@@ -1,9 +1,11 @@
 import React from "react";
 import "../App.css";
 
+// Static data for now
+
 const Home = () => {
   return (
-    <div className="container container-fluid">
+    <>
       <h1 id="products_heading">Latest Products</h1>
       <section id="products" className="container mt-5">
         <div className="row">
@@ -23,7 +25,7 @@ const Home = () => {
                 </div>
             </div>
       </section>
-    </div>
+    </>
   );
 };
 
