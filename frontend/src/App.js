@@ -1,10 +1,10 @@
-import './App.css';
+// import './App.css';
+import Header from './components/layouts/Header'
 
 const App = () => {
   return (
     <div className="App">
-      
-      <h1>MangoOils Webshop</h1>
+      <Header />
     </div>
   );
 }

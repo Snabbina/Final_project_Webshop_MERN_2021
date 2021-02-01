@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 
+
+//Source of truth?
 ReactDOM.render(
   <React.StrictMode>
     <App />
