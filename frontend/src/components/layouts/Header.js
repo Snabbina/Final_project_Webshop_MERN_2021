@@ -54,3 +54,4 @@ export default Header;
 // ******************************************************************************
 
 // via Extenssion E7 React snippets short: racfe --->  gives basic comp templet!
+// https://fontawesome.com/v4.7.0/icon/search  for <i class="fa fa-search" aria-hidden="true"></i> ICON
