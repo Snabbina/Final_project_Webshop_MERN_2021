@@ -1,14 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { productReducers } from './reducers/productReducers'
 
 
 //reducers for all our resources
 const reducer = combineReducers ({
-
+    products: productReducers
 
 })
-
 
 
  //before loading the App
@@ -34,4 +34,4 @@ const store = createStore(reducer, initialState, composeEnhancers(
 // const middleware = [thunk]
 // const store = createStore(reducer, initialState, composeWithDevTools, (applyMiddleware(...middleware)))
 
-// export default store;
+// export default store;""
