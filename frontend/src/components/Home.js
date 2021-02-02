@@ -1,54 +1,45 @@
 import React, { useEffect } from "react";
 import "../App.css";
 
+import TitleTags from "./layouts/TitleTags";
+import Product from "./product/Product";
+import Loader from "./layouts/Loader";
 
-import TitleTags  from './layouts/TitleTags'
-// import Loader from './layouts/Loader'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../actions/productActions'
-
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../actions/productActions";
 
 const Home = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  // PUll all of these from the stat
+  const { loading, products, errors, productsCount } = useSelector(
+    (state) => state.products
+  );
 
-    const { loading, products, errors, productsCount } = useSelector(state => state.products)
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(getProducts())
-    }, [dispatch])
-
-
-    return (
+  return (
+    <>
+      {loading ? <Loader /> : (
         <>
-            {/* {loading ? <Loader /> : (  */}
+          <TitleTags title={"Get the best Self care kit online"} />
 
-            <TitleTags title={'Get the best Self care kit online'} />
+          <h1 id="products_heading">Latest Products</h1>
 
-        <h1 id="products_heading">Latest Products</h1>
-        <section id="products" className="container mt-5">
+          <section id="products" className="container mt-5">
             <div className="row">
-                <div className="col-sm-12 col-md-6 col-lg-3 my-3">
-                    <div className="card p-3 rounded">
-                        {/* <img className="card-img-top mx-auto" 
-                        //not getting the img right now......
-
-                        src="./images/four_oils.jpg" alt="four bottles of oil"/> */}
-                        <div className="card-body d-flex flex-column">
-                            <h5 className="card-title">
-                                <a href="">Pack of 4xbottles of Mango oil</a>
-                            </h5>
-                            {/* //<div> Skipping Rating for now */}
-                            <p className="card-text">140kr</p>
-                            <a href="" id="view_btn" className="btn btn-block">View more details</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
+              {products &&
+                products.map((product) => (
+                  <Product key={product._id} product={product} />
+                ))}
+            </div>
+          </section>
         </>
-    );
-    };
+      )}
+    </>
+  );
+};
 
-    export default Home;
+export default Home;

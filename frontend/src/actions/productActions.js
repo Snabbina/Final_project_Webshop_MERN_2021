@@ -10,9 +10,10 @@ import {
 //Gets the products and fills the array
 export const getProducts = () => async (dispatch) => {
   try {
+      
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-    //get all data from Backend
+    //get all data from Backend from the url
     const { data } = await axios.get('/api/v1/products');
 
     dispatch({
