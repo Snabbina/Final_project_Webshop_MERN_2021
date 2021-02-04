@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../../App.css";
 
@@ -32,10 +33,11 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <button className="btn" id="login_btn">
-            Login{" "}
-          </button>
+        <div className="col-12 col-md-3 mt-4
+         mt-md-0 text-center">
+          <Link to="/login" className="btn ml-4" id="login_btn">
+            Login
+          </Link>
 
           <span className="ml-3" id="cart">
             Cart

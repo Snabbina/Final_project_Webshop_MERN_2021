@@ -14,8 +14,8 @@ const Home = () => {
 
   const alert = useAlert()
 
-  // PUll all of these from the state
-  const { loading, products, error, productsCount } = useSelector(
+  // PUll all of these from the state, , productsCount ska in här sen
+  const { loading, products, error } = useSelector(
     (state) => state.products
   );
 

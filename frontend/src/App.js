@@ -6,6 +6,8 @@ import Footer from "./components/layouts/Footer";
 import Home from "./components/Home";
 import ProductDetails from './components/product/ProductDetails'
 
+import Login from './components/user/Login'
+
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
         <div className="container container-fluid">
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductDetails} exact />
+          <Route path="/login" component={Login} />
         </div>
         <Footer />
       </div>
