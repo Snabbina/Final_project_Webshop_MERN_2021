@@ -17,7 +17,7 @@ const Login = ({ history }) => {
   const dispatch = useDispatch();
 
 
-  //haed state.auth before didi not work se Home,js there its state.products
+  //hade state.auth before did not work se Home,js there its state.products
   const { isAuthenticated, error, loading } = useSelector(
     state => state.users);
 
