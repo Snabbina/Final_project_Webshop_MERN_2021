@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import "../App.css";
+import React, { useState, useEffect } from "react";
+// import "../App.css";
+import Pagination from 'react-js-pagination'
 
 import TitleTags from "./layouts/TitleTags";
 import Product from "./product/Product";
@@ -10,13 +11,16 @@ import { getProducts } from "../actions/productActions";
 import { useAlert } from 'react-alert'
 
 const Home = () => {
-  const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1)
 
   const alert = useAlert()
+  const dispatch = useDispatch();
+
 
   // PUll all of these from the state, , productsCount ska in här sen
-  const { loading, products, error } = useSelector(
-    (state) => state.products
+  const { loading, products, error, productsCount, resPerPage } = useSelector (
+    state => state.products
   );
 
   useEffect(() => {
@@ -24,11 +28,19 @@ const Home = () => {
       return alert.error(error)
     }
     
-    dispatch(getProducts());
+    dispatch(getProducts(currentPage));
 
    
 
-  }, [dispatch, alert, error]);
+  }, [dispatch, alert, error, currentPage]);
+
+  function setCurrentPageNo(pageNumber){
+    setCurrentPage(pageNumber)
+  }
+
+  // const setCurrentPageNo = (pageNumber) => {
+  //   setCurrentPage(pageNumber)
+  // }
 
  
   return (
@@ -47,6 +59,24 @@ const Home = () => {
                 ))}
             </div>
           </section>
+
+          {resPerPage < productsCount}
+                  <div className="d-flex justify-content-center mt-5">
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resPerPage}
+                    totalItemsCount={productsCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText = {'Next'}
+                    prevPageText = {'Prev'}
+                    firstPageText = {'First'}
+                    lastPageText = {'Last'}
+                    itemClass="page-item"
+                    linkClass="page/link"
+                    />
+
+                  </div>
+
         </>
       )}
     </>

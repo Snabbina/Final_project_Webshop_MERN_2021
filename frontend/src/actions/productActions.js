@@ -11,13 +11,13 @@ import {
 } from "../constants/productConstants";
 
 //Gets the products and fills the array
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (currentPage = 1) => async (dispatch) => {
   try {
       
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
     //get all data from Backend from the url
-    const { data } = await axios.get(`http://localhost:4000/api/v1/products/`);
+    const { data } = await axios.get(`http://localhost:4000/api/v1/products?page=${currentPage}`);
 
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
@@ -25,7 +25,7 @@ export const getProducts = () => async (dispatch) => {
     });
 
   } catch (error) {
-    dispatch({
+    dispatch ({
       type: ALL_PRODUCTS_FAIL,
       payload: error.response.data.message,
     });

@@ -20,11 +20,18 @@ export const login = (email, password) => async (dispatch) => {
         "content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
-      "/api/v1/login",
+     const { data } = await axios.post(
+      `http://localhost:4000/api/v1/login`,
       { email, password },
       config
     );
+
+
+    // const { data } = await axios.post(
+    //   "/api/v1/login",
+    //   { email, password },
+    //   config
+    // );
 
     dispatch({
       type: LOGIN_SUCCESS,
