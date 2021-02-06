@@ -18,7 +18,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
 
-  // PUll all of these from the state, , productsCount ska in här sen
+  // PUll all of these from the state,
   const { loading, products, error, productsCount, resPerPage } = useSelector (
     state => state.products
   );
@@ -34,13 +34,15 @@ const Home = () => {
 
   }, [dispatch, alert, error, currentPage]);
 
+  // kan man ersätta med en arrow func?
+  // const setCurrentPageNo = (pageNumber) => {
+  //   setCurrentPage(pageNumber)
+  // }
+
   function setCurrentPageNo(pageNumber){
     setCurrentPage(pageNumber)
   }
 
-  // const setCurrentPageNo = (pageNumber) => {
-  //   setCurrentPage(pageNumber)
-  // }
 
  
   return (

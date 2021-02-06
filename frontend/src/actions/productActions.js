@@ -23,7 +23,7 @@ export const getProducts = (currentPage = 1) => async (dispatch) => {
       type: ALL_PRODUCTS_SUCCESS,
       payload: data,
     });
-
+    
   } catch (error) {
     dispatch ({
       type: ALL_PRODUCTS_FAIL,
@@ -34,7 +34,7 @@ export const getProducts = (currentPage = 1) => async (dispatch) => {
 
 
 
-//gets the details of product via id
+//gets the DETAILS of product via id
 export const getProductDetails = (id) => async (dispatch) => {
   try {
       
