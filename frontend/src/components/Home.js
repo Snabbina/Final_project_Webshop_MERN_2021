@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import "../App.css";
+import "../App.css";
 import Pagination from 'react-js-pagination'
 
 import TitleTags from "./layouts/TitleTags";
@@ -51,7 +51,7 @@ const Home = () => {
         <>
           <TitleTags title={"Get the best Self care kit online"} />
 
-          <h1 id="products_heading">Latest Products</h1>
+          <h1 id="products_heading">Latest Capsule Wardrobes</h1>
 
           <section id="products" className="container mt-5">
             <div className="row">

@@ -27,12 +27,12 @@ body {
 }
 
 nav {
-  background-color: #232f3e;
+  background-color: #c4c9c1;
   padding: 1rem 1rem;
 }
 
 #search_btn {
-  background-color: #febd69;
+  background-color: #fedcba;
 }
 
 .input-group {
@@ -47,18 +47,18 @@ nav {
 
 #login_btn,
 #view_btn {
-  background-color: #febd69;
+  background-color: #fedcba;
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: black;
 }
 
 #cart_count {
-  background-color: #febd69;
+  background-color: #fedcba;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
   color: black;
@@ -80,7 +80,7 @@ nav {
 }
 
 .card-title a:hover {
-  color: #fa9c23;
+  color: #fedcba;
   text-decoration: none;
 }
 
@@ -93,8 +93,8 @@ nav {
 }
 
 #view_btn {
-  background-color: #fa9c23;
-  color: white;
+  background-color: #fedcba;
+  color: black;
 }
 
 .card-img-top {
@@ -162,7 +162,8 @@ footer {
 #cart_btn,
 #review_btn {
   border-radius: 2rem;
-  background-color: #fa9c23;
+  background-color: #fedcba;
+  color: black;
   border: none;
   padding: 0.5rem 2rem;
 }
@@ -207,8 +208,8 @@ footer {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fa9c23;
-  border-color: #fa9c23 transparent;
+  border: 6px solid  #fedcba;
+  border-color:  #fedcba transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -233,29 +234,29 @@ footer {
 
 #delete_cart_item {
   color: red;
-  background: white;
+  background: black;
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
 }
 
 #card_item_price {
-  color: #febd69;
+  color: #fedcba;
   font-weight: bold;
   font-size: 1.4rem;
 }
 
 #checkout_btn,
 .review-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #fedcba;
+  border-color: #fedcba;
   margin-top: 2rem;
   border-radius: 5rem;
 }
 
 #view_order_details {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #fedcba;
+  border-color: #fedcba;
 }
 
 #order_summary {
@@ -307,9 +308,9 @@ footer {
 }
 
 .wrapper form .btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
-  color: white;
+  background-color: #fedcba;
+  border-color: #fedcba;
+  color: black;
   margin-top: 2.5rem;
 }
 
@@ -387,7 +388,7 @@ footer {
 }
 
 .active-step {
-  background: #fa9c23;
+  background: #fedcba;
   color: #fff;
 }
 
@@ -395,7 +396,7 @@ footer {
   float: left;
   width: 0;
   border-top: 20px solid transparent;
-  border-left: 15px solid #fa9c23;
+  border-left: 15px solid #fedcba;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
 }
@@ -403,9 +404,9 @@ footer {
 .triangle2-active {
   width: 0;
   float: left;
-  border-top: 20px solid #fa9c23;
+  border-top: 20px solid #fedcba;
   border-left: 15px solid #fff;
-  border-bottom: 20px solid #fa9c23;
+  border-bottom: 20px solid #fedcba;
   margin-right: -1px;
 }
 
@@ -445,8 +446,8 @@ footer {
 }
 
 #edit_profile {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #fedcba;
+  border-color: #fedcba;
 }
 
 /* Confirm Order */
@@ -457,27 +458,27 @@ footer {
 }
 
 .update-btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
-  color: white;
+  background-color: #fedcba;
+  border-color: #fedcba;
+  color: black;
 }
 
 .update-btn:hover {
-  color: white;
+  color: black;
 }
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #fedcba;
+  border-color: #fedcba;
 }
 
 .page-link {
-  color: #fa9c23;
+  color: #fedcba;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  color: #fedcba;
 }
 
 /* Admin Sidebar */
@@ -519,7 +520,7 @@ footer {
   padding: 10px;
   font-size: 1.1em;
   display: block;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 #sidebar ul li a:hover {
@@ -603,7 +604,7 @@ ul.CTAs a {
 }
 
 .orange {
-  color: #fa9c23;
+  color: #fedcba;
 }
 
 .yellow {

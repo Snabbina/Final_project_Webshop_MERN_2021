@@ -24,10 +24,16 @@ const Header = () => {
       <nav className="navbar row">
         <div className="col-12 col-md-3">
           <div className="navbar-brand">
-            {/* IF I WANT A LOGO HERE */}
-            {/* <Link to="/">
-            <img src="/images/Logo.png" />
-            </Link> */}
+            {/* LOGO HERE fix with css */}
+            <Link to="/">
+            <figure className="avatar mr-3 item-rtl">
+                    <img
+                       src="./images/Logo_wardrobe.jpg" 
+                      className="rounded-circle"
+                      alt="Logo"
+                    />
+                  </figure>
+            </Link>
           </div>
         </div>
 
@@ -37,7 +43,7 @@ const Header = () => {
               type="text"
               id="search-field"
               className="form-control"
-              placeholder="Enter Product name here"
+              placeholder="Enter size or style here"
             />
 
             <div className="input-group-append">
