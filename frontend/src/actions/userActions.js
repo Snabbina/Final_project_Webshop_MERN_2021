@@ -101,7 +101,6 @@ export const loadUser = () => async (dispatch) => {
 }
 
 
-
 //Logout user
 export const logout = () => async (dispatch) => {
   try {
