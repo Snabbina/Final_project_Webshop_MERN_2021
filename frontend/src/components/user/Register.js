@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 
 const Register = ({ history }) => {
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -16,7 +17,7 @@ const Register = ({ history }) => {
   const { name, email, password } = user;
 
   const [avatar, setAvatar] = useState("");
-  const [avatarPreview, setAvatarPreview] = useState("/images/your_awsome.jpg");
+  const [avatarPreview, setAvatarPreview] = useState("./images/four_oils.jpg");
 
   const alert = useAlert();
   const dispatch = useDispatch();

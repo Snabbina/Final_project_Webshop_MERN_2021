@@ -33,6 +33,7 @@ const Header = () => {
                       alt="Logo"
                     />
                   </figure>
+                  
             </Link>
           </div>
         </div>
