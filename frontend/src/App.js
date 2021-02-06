@@ -1,5 +1,6 @@
 // import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useEffect } from 'react'
 
 
 import Header from "./components/layouts/Header";
@@ -9,9 +10,18 @@ import ProductDetails from './components/product/ProductDetails'
 
 import Login from './components/user/Login'
 import Register from './components/user/Register'
+import store from './store'
+
+
+import { loadUser } from './actions/userActions'
 
 
 const App = () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser())
+  },[])
+
   return (
     <Router>
       <div className="App">
