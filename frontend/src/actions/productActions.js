@@ -33,7 +33,6 @@ export const getProducts = (currentPage = 1) => async (dispatch) => {
 };
 
 
-
 //gets the DETAILS of product via id
 export const getProductDetails = (id) => async (dispatch) => {
   try {

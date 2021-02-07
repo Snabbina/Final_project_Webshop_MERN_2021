@@ -18,7 +18,6 @@ const reducer = combineReducers({
 
 //before loading the App, show products in cart if they exist, in local storage
 let initialState = {
-  
   //    cart: {
   //    cartItems: localStorage.getItem("cartItems")
   //   ? JSON.parse(localStorage.getItem("cartItems"))

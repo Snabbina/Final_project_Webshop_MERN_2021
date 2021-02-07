@@ -10,7 +10,7 @@ import {
  } from '../constants/productConstants'
 
 //4 cases
- export const productReducers = (state = { products:[] }, action )=>{
+ export const productReducers = (state = { products:[] }, action ) => {
     switch(action.type) {
         case ALL_PRODUCTS_REQUEST:
             return { 

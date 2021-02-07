@@ -180,11 +180,11 @@ footer {
 }
 
 .redColor {
-  color: red;
+  color: #f2cdf7;
 }
 
 .greenColor {
-  color: green;
+  color: #61da43;
 }
 
 #product_image {
@@ -233,7 +233,7 @@ footer {
 }
 
 #delete_cart_item {
-  color: red;
+  color:  #f2cdf7;
   background: black;
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
@@ -244,6 +244,22 @@ footer {
   color: #fedcba;
   font-weight: bold;
   font-size: 1.4rem;
+}
+
+
+/* plus and minus adding to cart */
+.btn-primary,
+.btn-danger {
+  background-color: #fedcba;
+  border-color: #fedcba;
+}
+
+.btn-primary:hover{
+  background-color: #67e972;
+  border-color: #fedcba;
+}
+.btn-danger:hover {
+  background-color: #e74b53;
 }
 
 #checkout_btn,
