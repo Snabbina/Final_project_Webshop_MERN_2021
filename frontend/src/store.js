@@ -6,23 +6,23 @@ import {
   productDetailsReducer,
 } from "./reducers/productReducers";
 import { userReducer } from "./reducers/userReducers";
-// import { cartReducer } from "./reducers/cartReducers";
+import { cartReducer } from "./reducers/cartReducers";
 
 //reducers for all our resources
 const reducer = combineReducers({
   products: productReducers,
   productDetails: productDetailsReducer,
   users: userReducer,
-  // cart: cartReducer,
+  cart: cartReducer,
 });
 
 //before loading the App, show products in cart if they exist, in local storage
 let initialState = {
-  //    cart: {
-  //    cartItems: localStorage.getItem("cartItems")
-  //   ? JSON.parse(localStorage.getItem("cartItems"))
-  //     : [],
-  //  },
+     cart: {
+     cartItems: localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+   },
 };
 
 const middleware = [thunk];

@@ -25,7 +25,6 @@ export const getProducts = (keyword = '', currentPage = 1, price, category) => a
 
     //get all data from Backend from the url
     const { data } = await axios.get(link);
-    console.log(data)
 
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,

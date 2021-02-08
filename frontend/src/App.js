@@ -7,6 +7,8 @@ import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 import Home from "./components/Home";
 import ProductDetails from './components/product/ProductDetails'
+import Cart from './components/cart/Cart'
+
 
 import Login from './components/user/Login'
 import Register from './components/user/Register'
@@ -35,6 +37,14 @@ const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/me" component={Profile} exact/>
+
+         <Route path="/cart" component={Cart} exact />
+          {/* <ProtectedRoute path="/shipping" component={Shipping} />
+          <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
+          <ProtectedRoute path="/success" component={OrderSuccess} /> */} 
+{/* 
+          <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+          <ProtectedRoute path="/order/:id" component={OrderDetails} exact /> */}
         </div>
       </div>
       <Footer />
