@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 
 import { logout } from '../../actions/userActions'
+import Search from "./Search"
 
 import "../../App.css";
 
@@ -39,20 +40,8 @@ const Header = () => {
         </div>
 
         <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <div className="input-group">
-            <input
-              type="text"
-              id="search-field"
-              className="form-control"
-              placeholder="Enter size or style here"
-            />
-
-            <div className="input-group-append">
-              <button id="search_btn" className="btn">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+          <Route render={({ history }) => <Search history={history}/> } />
+          
         </div>
 
         <div

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 import {
   ALL_PRODUCTS_REQUEST,
   ALL_PRODUCTS_SUCCESS,
@@ -11,13 +12,20 @@ import {
 } from "../constants/productConstants";
 
 //Gets the products and fills the array
-export const getProducts = (currentPage = 1) => async (dispatch) => {
+export const getProducts = (keyword = '', currentPage = 1, price, category) => async (dispatch) => {
   try {
       
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
+    let link = `http://localhost:4000/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
+
+    if(category) {
+      link = `http://localhost:4000/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
+    }
+
     //get all data from Backend from the url
-    const { data } = await axios.get(`http://localhost:4000/api/v1/products?page=${currentPage}`);
+    const { data } = await axios.get(link);
+    console.log(data)
 
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,

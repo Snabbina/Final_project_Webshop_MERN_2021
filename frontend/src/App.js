@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useEffect } from 'react'
 
@@ -29,14 +29,15 @@ const App = () => {
         <Header />
         <div className="container container-fluid">
           <Route path="/" component={Home} exact />
+          <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} exact />
           
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/me" component={Profile} exact/>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </Router>
   );
 };

@@ -7,7 +7,7 @@ import TitleTags from "../layouts/TitleTags";
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, clearErrors } from '../../actions/productActions'
-import { additemToCart } from "../../actions/cartActions";
+import { addItemToCart } from "../../actions/cartActions";
 
 
 
@@ -32,7 +32,7 @@ const ProductDetails = ({ match }) => {
     }, [dispatch, alert, error, match.params.id])
 
     const addToCart = () => {
-        dispatch(additemToCart(match.params.id, quantity))
+        dispatch(addItemToCart(match.params.id, quantity))
         alert.success('Item Added to Cart')
     }
 
