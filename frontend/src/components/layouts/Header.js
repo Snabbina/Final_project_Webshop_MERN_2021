@@ -14,6 +14,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { user, loading } = useSelector((state) => state.users);
+  const { cartItems } = useSelector((state) => state.cart)
 
   const logoutHandler = () => {
     dispatch(logout())
@@ -24,17 +25,13 @@ const Header = () => {
     <>
       <nav className="navbar row">
         <div className="col-12 col-md-3">
-          <div className="navbar-brand">
-            {/* LOGO HERE fix with css */}
+          <div className="navbar-brand"> 
             <Link to="/">
-            <figure className="avatar mr-3 item-rtl">
-                    <img
+                    <img className="rounded-circle-logo"
                        src="./images/Logo_wardrobe.jpg" 
-                      className="rounded-circle"
                       alt="Logo"
                     />
-                  </figure>
-                  
+
             </Link>
           </div>
         </div>
@@ -53,7 +50,7 @@ const Header = () => {
               Cart
             </span>
             <span className="ml-1" id="cart_count">
-              10
+            {cartItems.length}
             </span>
           </Link>
 
@@ -93,46 +90,6 @@ const Header = () => {
 
 
                 </div>
-
-
-{/* 
-
-          {user ? (
-            <div className="ml-4 dropdown d-line">
-              <Link
-                to="#!"
-                className="btn dopdown-toggle text white"
-                type="button"
-                id="dropDownMenueButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <figure className="avatar avatar-nav">
-                  <img
-                    src={user.avatar && user.avatar.url}
-                    alt={user && user.name}
-                    className="rounden-circle"
-                  />
-                </figure>
-                <span>alt={user && user.name}</span>
-              </Link>
-            <div className="dropdown-menu" aria-labelledby="dropDownMenuButton">
-
-              <Link className="dropdown-item text-danger" to="/">
-                Logout
-              </Link>
-             </div>
-
-            </div>
-          ) : (
-            !loading && (
-              <Link to="/login" className="btn ml-4" id="login_btn">
-                Login
-              </Link>
-            )
-          )}
-        </div> */}
 
       </nav>
     </>

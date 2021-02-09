@@ -43,6 +43,7 @@ nav {
 #search_field {
   height: 2.4rem;
   padding: 1rem;
+
 }
 
 #login_btn,
@@ -59,11 +60,11 @@ nav {
 
 #cart_count {
   background-color: #fedcba;
-  padding: 0.2rem 0.5rem;
+  padding: 0.1rem 0.3rem;
   border-radius: 0.2rem;
   color: black;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 /* Home page */
@@ -121,32 +122,7 @@ footer {
   width: 100%;
 }
 
-/* Ratings */
 
-.rating-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-  color: #fdcc0d;
-}
-
-.rating-outer::before {
-  content: '\f006 \f006 \f006 \f006 \f006';
-}
-
-.rating-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}
-
-.rating-inner::before {
-  content: '\f005 \f005 \f005 \f005 \f005';
-  color: #f8ce0b;
-}
 
 /* Product Details Page */
 #product_id {
@@ -233,15 +209,15 @@ footer {
 }
 
 #delete_cart_item {
-  color:  #f2cdf7;
-  background: black;
+  color:  #080808;
+  background:none;
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
 }
 
 #card_item_price {
-  color: #fedcba;
+  color: #0a0a0a;
   font-weight: bold;
   font-size: 1.4rem;
 }
@@ -259,7 +235,7 @@ footer {
   border-color: #fedcba;
 }
 .btn-danger:hover {
-  background-color: #e74b53;
+  background-color: #e48f93;
 }
 
 #checkout_btn,
@@ -271,12 +247,12 @@ footer {
 }
 
 #view_order_details {
-  background-color: #fedcba;
+  background-color: #35312e;
   border-color: #fedcba;
 }
 
 #order_summary {
-  border: 1px solid #e3e3e3;
+  border: 1px solid #2b2828;
   border-radius: 1rem;
   padding: 2rem 1.5rem;
 }
@@ -582,52 +558,22 @@ ul.CTAs a {
   margin-bottom: 5px;
 }
 
+.rounded-circle-logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+ }
+
 /* Products List Admin */
-#products_table .btn {
+/* #products_table .btn {
   padding: 0.2rem 0.5rem;
   margin-left: 0.4rem;
-}
+} */
 
 /* Dashboard */
 
-.card-font-size {
+/* .card-font-size {
   font-size: 1.5rem;
-}
+} */
 
-/* Reviews */
-
-.rating {
-  margin-top: 10rem;
-}
-
-.stars {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  padding-left: 0;
-}
-
-.star {
-  display: inline;
-  list-style: none;
-  font-size: 3rem;
-  padding-left: 0.9rem;
-  color: #e3e3e3;
-}
-
-.star:first-child {
-  padding-left: 0;
-}
-
-.orange {
-  color: #fedcba;
-}
-
-.yellow {
-  color: #fdcc0d;
-}
-
-.review_user {
-  font-size: 0.8rem;
-  color: grey;
-}

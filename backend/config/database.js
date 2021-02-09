@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-
+//const mongoURL =
 
 const connectDatabase = () => {
     mongoose.connect("mongodb://localhost/project-webshop", {

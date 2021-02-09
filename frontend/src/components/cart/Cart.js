@@ -10,10 +10,14 @@ const Cart = () => {
 const dispatch = useDispatch()
 
 
+
+
+
+
 const { cartItems } = useSelector (state => state.cart)
 
 const removeCartItemHandler = (id) => {
-    dispatch(removeCartItemHandler (id))
+    dispatch(removeItemFromCart (id))
 }
 
 const increaseQty = (id, quantity, stock) => {
@@ -30,7 +34,7 @@ dispatch(addItemToCart(id, newQty ))
 
     if (newQty <= 0) return;
 
-dispatch(removeItemFromCart(id, newQty))
+dispatch(addItemToCart(id, newQty))
 
 }
 
@@ -52,16 +56,16 @@ dispatch(removeItemFromCart(id, newQty))
                                     <div className="cart-item" key={item.product}>
                                         <div className="row">
                                             <div className="col-4 col-lg-3">
-                                                <img src={item.image} alt="Laptop" height="90" width="115" />
+                                                <img src={item.image} alt="#" height="90" width="115" />
                                             </div>
 
                                             <div className="col-5 col-lg-3">
-                                                <Link to={`/products/${item.product}`}>{item.name}</Link>
+                                                <Link to={`/products/${item.product}`}></Link>
                                             </div>
 
-
+                                        {/* Why cant I map product/ item name? why do I get price when mapping for name? */}
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                <p id="card_item_price">${item.price}</p>
+                                                <p id="card_item_price">{item.name} $</p>
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -90,8 +94,8 @@ dispatch(removeItemFromCart(id, newQty))
                             <div id="order_summary">
                                 <h4>Order Summary</h4>
                                 <hr />
-                                <p>Subtotal:  <span className="order-summary-values">{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span></p>
-                                <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</span></p>
+                                <p>Subtotal:  <span className="order-summary-values">{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Item)</span></p>
+                                <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * item.name, 0).toFixed(2)}</span></p>
 
                                 <hr />
                                  <button id="checkout_btn" className="btn btn-primary btn-block">Check out</button>

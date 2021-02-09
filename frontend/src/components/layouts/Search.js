@@ -21,10 +21,10 @@ const searchHandler = (e) => {
     <form onSubmit={searchHandler}> 
       <div className="input-group">
         <input
+        className="form-control"
           type="text"
           id="search-field"
-          className="form-control"
-          placeholder="What are you looking for?"
+          placeholder="Search for style, size, season"
           onChange={(e) => setKeyword(e.target.value)}
         />
 

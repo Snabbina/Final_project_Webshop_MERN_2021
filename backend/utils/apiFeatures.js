@@ -13,7 +13,7 @@ class APIFeatures {
            }
 
        } : {}
-       console.log(keyword)
+    //    console.log(keyword)
        this.query = this.query.find({...keyword})
        return this
    }
@@ -22,7 +22,7 @@ class APIFeatures {
 
        const queryCopy = { ...this.queryStr }
 
-       console.log(queryCopy)
+    //    console.log(queryCopy)
 
        //Removing field from the query (26)
        const removeFields = [ "keyword", "limit", "page"]

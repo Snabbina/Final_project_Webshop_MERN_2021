@@ -14,7 +14,7 @@ module.exports = (err, req, res, next) => {
 if (process.env.NODE_ENV === "DEVELOPMENT") {
   
 
-  res.status(err.statusCode).json({
+  res.status(err.statusCode || 500).json({
     success: false,
     error: err,
     errMessage: err.message,

@@ -25,10 +25,10 @@ router.route('/login').post(loginUser)
 
 router.route('/logout').get(logout)
 
-router.route('/register').post(registerUser)
+// router.route('/register').post(registerUser)
 
 router.route('/me').get(isAuthenticatedUser, getUserProfile)
 router.route('/password/update').put(isAuthenticatedUser, updatePassword)
 router.route('/me/update').put(isAuthenticatedUser, updateProfile)
 
-module.exports = router
+module.exports = router;

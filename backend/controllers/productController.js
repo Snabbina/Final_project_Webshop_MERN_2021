@@ -18,26 +18,35 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-//Get all products => /api/v1/products?keyword=shirt
+//Get all products => /api/v1/products
 //Calling Search() and Filter() here the logic is found in prodController
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
   const resPerPage = 4;
-  const productCount = await Product.countDocuments()
+  const productsCount = await Product.countDocuments()
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
                       .search()
                       .filter()
-                      .pagination(resPerPage)
+                     
 
-  const products = await apiFeatures.query
+  let products = await apiFeatures.query
+  let filteredProductsCount = products.length;
+
+  //const products or let here?
+  apiFeatures.pagination(resPerPage)
+  products = await apiFeatures.query
+ 
+
+
   res.status(200).json({
-    success: true,
-    count: products.length,
-    productCount,
-    products,
-    message: "this route will show all the products in the databas"
-  })
+      success: true,
+      resPerPage,
+      productsCount,
+      filteredProductsCount,
+      products
+    })
+ 
 })
 
 //Get singel product details =>  /api/v1/product/:id
@@ -55,7 +64,6 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Update Product  =>  /api/v1/admin/product/:id
-//Needs to be tested in Postman
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 

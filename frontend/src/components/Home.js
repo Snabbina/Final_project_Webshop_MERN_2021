@@ -16,7 +16,9 @@ import { useAlert } from "react-alert";
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
+
 const Home = ({ match }) => {
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [category, setCategory] = useState("");
@@ -26,7 +28,7 @@ const Home = ({ match }) => {
     "Festive",
     "Colorfull",
     "Summer",
-    "Vinter",
+    "Winter",
     "Monochrome",
     "Sporty",
     "M",
@@ -74,7 +76,7 @@ const Home = ({ match }) => {
         <>
           <TitleTags title={"Complete Capsule Wardrobe Online"} />
 
-          <h1 id="products_heading">Latest Capsule Wardrobes</h1>
+          <h1 id="products_heading">Newest Capsule Wardrobes</h1>
 
           <section id="products" className="container mt-5">
             <div className="row">
@@ -147,8 +149,8 @@ const Home = ({ match }) => {
                 onChange={setCurrentPageNo}
                 nextPageText={"Next"}
                 prevPageText={"Prev"}
-                firstPageText={"First"}
-                lastPageText={"Last"}
+                // firstPageText={"First"}
+                // lastPageText={"Last"}
                 itemClass="page-item"
                 linkClass="page/link"
               />
