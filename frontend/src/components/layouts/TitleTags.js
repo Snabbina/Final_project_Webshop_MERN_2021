@@ -7,7 +7,7 @@ const TitleTags = ({ title }) => {
   return (
     <div>
       <Helmet>
-        <title> {`${title} - Self-care-Kit`}</title>
+        <title> {`${title} - Best Capsule Wardrobes`}</title>
       </Helmet>
     </div>
   );
