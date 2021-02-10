@@ -127,14 +127,14 @@ const Home = ({ match }) => {
                   <div className="col-6 col-md-9">
                     <div className="row">
                       {products.map((product) => (
-                        <Product key={product._id} product={product} col={4} />
+                        <Product key={product._id} product={product} col={3} />
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
                 products.map((product) => (
-                  <Product key={product._id} product={product} col={3} />
+                  <Product key={product._id} product={product} col={4} />
                 ))
               )}
             </div>

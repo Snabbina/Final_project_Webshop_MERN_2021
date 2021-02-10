@@ -87,8 +87,12 @@ const Register = ({ history }) => {
                 type="name"
                 id="name_field"
                 className="form-control"
+                minLength="1"
+                maxLength="30"
+                required
                 name="name"
                 value={name}
+                placeholder="Firstname  Lastname"
                 onChange={onChange}
               />
             </div>
@@ -101,6 +105,11 @@ const Register = ({ history }) => {
                 className="form-control"
                 name="email"
                 value={email}
+                required
+                minLength="5"
+                maxLength="20"
+                className="form-control"
+                placeholder="Email@something.com"
                 onChange={onChange}
               />
             </div>
@@ -112,6 +121,10 @@ const Register = ({ history }) => {
                 id="password_field"
                 className="form-control"
                 name="password"
+                required
+                minLength="5"
+                maxLength="20"
+                placeholder="Min length 5 characters"
                 value={password}
                 onChange={onChange}
               />

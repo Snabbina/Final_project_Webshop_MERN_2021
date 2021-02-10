@@ -282,7 +282,22 @@ footer {
 .form-control:disabled,
 .form-control[readonly] {
   background-color: white;
+  /* color: rgba(207, 204, 204, 0.522); */
 }
+
+
+input::placeholder {
+  font-size: 16px;
+  /* color: rgba(102, 93, 93, 0.371); */
+}
+
+input:valid {
+  background-color:rgba(197, 240, 180, 0.255);
+}
+
+/* input:invalid {
+  background-color: #dfb0be9a;
+} */
 
 /* Login & Register */
 

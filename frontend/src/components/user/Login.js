@@ -9,21 +9,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../../actions/userActions";
 
 const Login = ({ history }) => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const alert = useAlert();
   const dispatch = useDispatch();
 
-
   //hade state.auth before did not work se Home,js there its state.products
   const { isAuthenticated, error, loading } = useSelector(
-    state => state.users);
+    (state) => state.users
+  );
 
   useEffect(() => {
-
-    if(isAuthenticated) {
+    if (isAuthenticated) {
       history.push("/");
     }
 
@@ -31,13 +29,12 @@ const Login = ({ history }) => {
       alert.error(error);
       dispatch(clearErrors());
     }
-
   }, [dispatch, alert, isAuthenticated, error, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password))
-}
+    dispatch(login(email, password));
+  };
 
   return (
     <>
@@ -47,46 +44,58 @@ const Login = ({ history }) => {
         <>
           <TitleTags title={"Login"} />
 
-         <div className="row wrapper">
-                        <div className="col-10 col-lg-5">
-                            <form className="shadow-lg" onSubmit={submitHandler}>
-                                <h1 className="mb-3">Login</h1>
-                                <div className="form-group">
-                                    <label htmlFor="email_field">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email_field"
-                                        className="form-control"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                </div>
+          <div className="row wrapper">
+            <div className="col-10 col-lg-5">
+              <form className="shadow-lg" onSubmit={submitHandler}>
+                <h1 className="mb-3">Login</h1>
+                <div className="form-group">
+                  <label htmlFor="email_field">Email</label>
+                  <input
+                    type="email"
+                    id="email_field"
+                    required
+                    minLength="5"
+                    maxLength="20"
+                    className="form-control"
+                    placeholder="Email@something.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="password_field">Password</label>
-                                    <input
-                                        type="password"
-                                        id="password_field"
-                                        className="form-control"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                </div>
+                <div className="form-group">
+                  <label htmlFor="password_field">Password</label>
+                  <input
+                    type="password"
+                    id="password_field"
+                    className="form-control"
+                    placeholder="Min length 5 characters"
+                    required
+                    minLength="5"
+                    maxLength="20"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
 
-                                <Link to="/password/forgot" className="float-right mb-4">Forgot Password?</Link>
+                <Link to="/password/forgot" className="float-right mb-4">
+                  Forgot Password?
+                </Link>
 
-                                <button
-                                    id="login_button"
-                                    type="submit"
-                                    className="btn btn-block py-3"
-                                >
-                                    LOGIN
-                                </button>
+                <button
+                  id="login_button"
+                  type="submit"
+                  className="btn btn-block py-3"
+                >
+                  LOGIN
+                </button>
 
-                                <Link to="/register" className="float-right mt-3">New User?</Link>
-                            </form>
-                        </div>
-                    </div>
+                <Link to="/register" className="float-right mt-3">
+                  New User?
+                </Link>
+              </form>
+            </div>
+          </div>
         </>
       )}
     </>
