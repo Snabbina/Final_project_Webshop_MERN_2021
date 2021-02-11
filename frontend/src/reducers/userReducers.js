@@ -13,8 +13,6 @@ import {
   CLEAR_ERRORS,
 } from "../constants/userConstants";
 
-
-
 // Test if localStorage can be implemented like this later on:
 // export const userReducer = (  state = { user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")): {}, }, action) => {
 //   switch (action.type) {
@@ -23,12 +21,11 @@ export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
-     case LOAD_USER_REQUEST:
+    case LOAD_USER_REQUEST:
       return {
         loading: true,
         isAuthenticated: false,
       };
-
 
     case LOGIN_SUCCESS:
     case REGISTER_USER_SUCCESS:

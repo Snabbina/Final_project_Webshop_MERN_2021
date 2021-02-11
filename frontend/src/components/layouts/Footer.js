@@ -6,7 +6,8 @@ const Footer = () => {
     <>
       <footer className="py-1">
         <p className="text-center mt-1">
-          Webshop by Sabina van der Schaaf de Maré 2021, All Rights Reserved
+          Webshop by Sabina van der Schaaf de Maré, Technigo bootcamp 2021.
+          <p>All Rights Reserved</p>
         </p>
       </footer>
     </>

@@ -1,14 +1,13 @@
-const User = require("../models/user");
+const cloudinary = require("cloudinary");
 
+const User = require("../models/user");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const sendToken = require("../utils/jwtToken");
 
-const cloudinary = require("cloudinary")
-
 //Register a user =>/api/v1//register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-
+  // Will be used for avatar img later on
   // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
   //     folder: 'avatars',
   //     width: 150,
@@ -16,7 +15,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   // })
 
   const { name, email, password } = req.body;
-  // console.log(req.body)
 
   const user = await User.create({
     name,
@@ -89,8 +87,6 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
   };
-
-
 
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,

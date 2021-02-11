@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 
-import TitleTags from "../layouts/TitleTags"
+import TitleTags from "../layouts/TitleTags";
 import { register, clearErrors } from "../../actions/userActions";
 
 const Register = ({ history }) => {
-
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -21,7 +20,9 @@ const Register = ({ history }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  const { isAuthenticated, error, loading } = useSelector((state) => state.users);
+  const { isAuthenticated, error, loading } = useSelector(
+    (state) => state.users
+  );
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -46,26 +47,22 @@ const Register = ({ history }) => {
     dispatch(register(formData));
   };
 
-  const onChange = e => {
-      if(e.target.name === 'avatar') {
+  const onChange = (e) => {
+    if (e.target.name === "avatar") {
+      const reader = new FileReader();
 
-        const reader = new FileReader()
-
-        reader.onload = () => {
-            if(reader.readyState === 2) {
-                setAvatarPreview(reader.result)
-                setAvatar(reader.result)
-            }   
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setAvatarPreview(reader.result);
+          setAvatar(reader.result);
         }
+      };
 
-        reader.readAsDataURL(e.target.files[0])
-
-      } else {
-
-        setUser({...user, [e.target.name]: e.target.value })
-
-      }
-  }
+      reader.readAsDataURL(e.target.files[0]);
+    } else {
+      setUser({ ...user, [e.target.name]: e.target.value });
+    }
+  };
 
   return (
     <>

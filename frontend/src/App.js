@@ -1,29 +1,24 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useEffect } from 'react'
-
+import { useEffect } from "react";
 
 import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 import Home from "./components/Home";
-import ProductDetails from './components/product/ProductDetails'
-import Cart from './components/cart/Cart'
+import ProductDetails from "./components/product/ProductDetails";
+import Cart from "./components/cart/Cart";
 
+import Login from "./components/user/Login";
+import Register from "./components/user/Register";
+import Profile from "./components/user/Profile";
+import store from "./store";
 
-import Login from './components/user/Login'
-import Register from './components/user/Register'
-import Profile from './components/user/Profile'
-import store from './store'
-
-
-import { loadUser } from './actions/userActions'
-
+import { loadUser } from "./actions/userActions";
 
 const App = () => {
-
   useEffect(() => {
-    store.dispatch(loadUser())
-  },[])
+    store.dispatch(loadUser());
+  }, []);
 
   return (
     <Router>
@@ -33,18 +28,12 @@ const App = () => {
           <Route path="/" component={Home} exact />
           <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} exact />
-          
+
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/me" component={Profile} exact/>
+          <Route path="/me" component={Profile} exact />
 
-         <Route path="/cart" component={Cart} exact />
-          {/* <ProtectedRoute path="/shipping" component={Shipping} />
-          <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
-          <ProtectedRoute path="/success" component={OrderSuccess} /> */} 
-{/* 
-          <ProtectedRoute path="/orders/me" component={ListOrders} exact />
-          <ProtectedRoute path="/order/:id" component={OrderDetails} exact /> */}
+          <Route path="/cart" component={Cart} exact />
         </div>
       </div>
       <Footer />

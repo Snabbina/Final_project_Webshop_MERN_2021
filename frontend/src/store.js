@@ -17,24 +17,21 @@ const reducer = combineReducers({
   cart: cartReducer,
 });
 
-//before loading the App, show products in cart if they exist, in local storage
+//Before loading the App, show products in cart if they exist, in local storage
 let initialState = {
-     cart: {
-     cartItems: localStorage.getItem("cartItems")
-    ? JSON.parse(localStorage.getItem("cartItems"))
-      : []
-   },
+  cart: {
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+  },
 
-
-   //Is not working yet
-   users: {
+  //Is not working yet
+  users: {
     cartItems: localStorage.getItem("user")
-   ? JSON.parse(localStorage.getItem("user"))
-     : {}
+      ? JSON.parse(localStorage.getItem("user"))
+      : {},
   },
 };
-
-
 
 const middleware = [thunk];
 const composeEnhancers = composeWithDevTools({});
@@ -46,4 +43,3 @@ const store = createStore(
 );
 
 export default store;
-

@@ -15,7 +15,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/userConstants";
 
-//login functionality
+//login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
@@ -25,14 +25,13 @@ export const login = (email, password) => async (dispatch) => {
         "content-Type": "application/json",
       },
     };
-     const { data } = await axios.post(
+    const { data } = await axios.post(
       `http://localhost:4000/api/v1/login`,
       { email, password },
       config
     );
     // localStorage.setItem('user', JSON.stringify(data.user))
-    // console.log(data)
-   
+
     dispatch({
       type: LOGIN_SUCCESS,
       payload: data.user,
@@ -40,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
-      payload: error.response.data.message,
+      payload: error.response.data.message
     });
   }
 };
@@ -48,72 +47,68 @@ export const login = (email, password) => async (dispatch) => {
 //Register user
 export const register = (userData) => async (dispatch) => {
   try {
-    console.log(userData)
+    console.log(userData);
 
-      dispatch({ type: REGISTER_USER_REQUEST })
+    dispatch({ type: REGISTER_USER_REQUEST });
 
-      const config = {
-          headers: {
-              'Content-Type': 'multipart/form-data'
-          }
-      }
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
 
-      const { data } = await axios.post(`http://localhost:4000/api/v1/register`,
-       userData, config)
+    const { data } = await axios.post(
+      `http://localhost:4000/api/v1/register`,
+      userData,
+      config
+    );
 
-      dispatch({
-          type: REGISTER_USER_SUCCESS,
-          payload: data.user
-      })
-
+    dispatch({
+      type: REGISTER_USER_SUCCESS,
+      payload: data.user,
+    });
   } catch (error) {
-      dispatch({
-          type: REGISTER_USER_FAIL,
-          payload: error.response.data.message
-      })
+    dispatch({
+      type: REGISTER_USER_FAIL,
+      payload: error.response.data.message
+    });
   }
-}
-
+};
 
 //Load user
 export const loadUser = () => async (dispatch) => {
   try {
+    dispatch({ type: LOAD_USER_REQUEST });
 
-      dispatch({ type: LOAD_USER_REQUEST })
+    const { data } = await axios.get(`http://localhost:4000/api/v1/me`);
 
-      const { data } = await axios.get(`http://localhost:4000/api/v1/me`)
-
-      dispatch({
-          type: LOAD_USER_SUCCESS,
-          payload: data.user
-      })
-
+    dispatch({
+      type: LOAD_USER_SUCCESS,
+      payload: data.user,
+    });
   } catch (error) {
-      dispatch({
-          type: LOAD_USER_FAIL,
-          payload: error.response.data.message
-      })
+    dispatch({
+      type: LOAD_USER_FAIL,
+      payload: error.response.data.message
+    });
   }
-}
-
+};
 
 //Logout user
 export const logout = () => async (dispatch) => {
   try {
+    await axios.get(`http://localhost:4000/api/v1/logout`);
 
-    await axios.get(`http://localhost:4000/api/v1/logout`)
-
-      dispatch({
-          type: LOGOUT_SUCCESS,
-      })
-
+    dispatch({
+      type: LOGOUT_SUCCESS,
+    });
   } catch (error) {
-      dispatch({
-          type: LOGOUT_FAIL,
-          payload: error.response.data.message
-      })
+    dispatch({
+      type: LOGOUT_FAIL,
+      payload: error.response.data.message
+    });
   }
-}
+};
 
 export const clearErrors = () => async (dispatch) => {
   dispatch({

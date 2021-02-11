@@ -25,4 +25,3 @@ router.route('/admin/product/:id')
 
 
 module.exports = router
-

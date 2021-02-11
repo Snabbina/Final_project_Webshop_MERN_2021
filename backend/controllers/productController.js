@@ -1,5 +1,4 @@
 const Product = require("../models/product");
-
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const APIFeatures = require("../utils/apiFeatures")
@@ -19,7 +18,6 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Get all products => /api/v1/products
-//Calling Search() and Filter() here the logic is found in prodController
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
   const resPerPage = 4;

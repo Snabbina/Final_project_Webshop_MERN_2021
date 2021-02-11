@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "../layouts/Loader";
 import TitleTags from "../layouts/TitleTags";
-
-import { useAlert } from "react-alert";
-import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../../actions/userActions";
 
 const Login = ({ history }) => {
@@ -14,7 +13,6 @@ const Login = ({ history }) => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
-
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.users
@@ -35,8 +33,6 @@ const Login = ({ history }) => {
     e.preventDefault();
     dispatch(login(email, password));
   };
-
-
 
   return (
     <>

@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
 
-// import "../App.css";
 import Pagination from "react-js-pagination";
-import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
-
+import { getProducts } from "../actions/productActions";
 import TitleTags from "./layouts/TitleTags";
 import Product from "./product/Product";
 import Loader from "./layouts/Loader";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../actions/productActions";
-import { useAlert } from "react-alert";
+
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
-
 const Home = ({ match }) => {
-  
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [category, setCategory] = useState("");
@@ -39,10 +36,15 @@ const Home = ({ match }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  // PUll all of these from the state,
-  const { loading, products, error, productsCount, resPerPage, filteredProductsCount } = useSelector(
-    (state) => state.products
-  );
+  // PUll from the state,
+  const {
+    loading,
+    products,
+    error,
+    productsCount,
+    resPerPage,
+    filteredProductsCount,
+  } = useSelector((state) => state.products);
 
   const keyword = match.params.keyword;
 
@@ -54,11 +56,9 @@ const Home = ({ match }) => {
     dispatch(getProducts(keyword, currentPage, price, category));
   }, [dispatch, alert, error, keyword, currentPage, price, category]);
 
-  
   const setCurrentPageNo = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
-
+    setCurrentPage(pageNumber);
+  };
 
   let count = productsCount;
   if (keyword) {
@@ -77,7 +77,6 @@ const Home = ({ match }) => {
 
           <section id="products" className="container mt-5">
             <div className="row">
-              
               {keyword ? (
                 <>
                   <div className="col-6 col-md-3 mt-5 mb-5">
@@ -136,7 +135,7 @@ const Home = ({ match }) => {
                 products.map((product) => (
                   <Product key={product._id} product={product} col={3} />
                 ))
-              )}                          
+              )}
             </div>
           </section>
 

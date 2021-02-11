@@ -1,109 +1,133 @@
-import React, { useEffect, useState } from 'react'
-import { Carousel } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { Carousel } from "react-bootstrap";
 
 import Loader from "../layouts/Loader";
 import TitleTags from "../layouts/TitleTags";
 
-import { useAlert } from 'react-alert'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProductDetails, clearErrors } from '../../actions/productActions'
+import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductDetails, clearErrors } from "../../actions/productActions";
 import { addItemToCart } from "../../actions/cartActions";
 
-
-
 const ProductDetails = ({ match }) => {
+  const [quantity, setQuantity] = useState(1);
 
-    const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch();
+  const alert = useAlert();
 
-    const dispatch = useDispatch()
-    const alert = useAlert()
+  const { loading, error, product } = useSelector(
+    (state) => state.productDetails
+  );
 
+  useEffect(() => {
+    dispatch(getProductDetails(match.params.id));
 
-    const { loading, error, product } = useSelector(state => state.productDetails)
-
-    useEffect(() => {
-        dispatch(getProductDetails(match.params.id ))
-
-        if(error) {
-            alert.error(error)
-            dispatch(clearErrors())
-        }
-
-    }, [dispatch, alert, error, match.params.id])
-
-    const addToCart = () => {
-        dispatch(addItemToCart(match.params.id, quantity))
-        alert.success('Item Added to Cart')
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
     }
+  }, [dispatch, alert, error, match.params.id]);
 
-    const increaseQty = () => {
-        const count = document.querySelector('.count')
+  const addToCart = () => {
+    dispatch(addItemToCart(match.params.id, quantity));
+    alert.success("Item Added to Cart");
+  };
 
-        if (count.valueAsNumber >= product.stock) return;
+  const increaseQty = () => {
+    const count = document.querySelector(".count");
 
-        const qty = count.valueAsNumber + 1
-        setQuantity(qty)
-    }
+    if (count.valueAsNumber >= product.stock) return;
 
-        const decreaseQty = () => {
-            const count = document.querySelector('.count')
+    const qty = count.valueAsNumber + 1;
+    setQuantity(qty);
+  };
 
-        if (count.valueAsNumber <= 1 ) return;
+  const decreaseQty = () => {
+    const count = document.querySelector(".count");
 
-        const qty = count.valueAsNumber - 1
-        setQuantity(qty)
-    }
+    if (count.valueAsNumber <= 1) return;
 
-    return (
+    const qty = count.valueAsNumber - 1;
+    setQuantity(qty);
+  };
+
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
         <>
-            {loading ? <Loader /> : (
-                <>
-                    <TitleTags title={product.name} />
-                    <div className="row d-flex justify-content-around">
-                        <div className="col-12 col-lg-5 img-fluid" id="product_image">
-                            <Carousel pause='hover'>
-                                {product.images && product.images.map(image => (
-                                    <Carousel.Item key={image.public_id}>
-                                        <img className="d-block w-100" src={image.url} alt={product.title} />
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
-                        </div>
+          <TitleTags title={product.name} />
+          <div className="row d-flex justify-content-around">
+            <div className="col-12 col-lg-5 img-fluid" id="product_image">
+              <Carousel pause="hover">
+                {product.images &&
+                  product.images.map((image) => (
+                    <Carousel.Item key={image.public_id}>
+                      <img
+                        className="d-block w-100"
+                        src={image.url}
+                        alt={product.title}
+                      />
+                    </Carousel.Item>
+                  ))}
+              </Carousel>
+            </div>
 
-                        <div className="col-12 col-lg-5 mt-5">
-                            <h3>{product.name}</h3>
-                            <p id="product_id">Product # {product._id}</p>
+            <div className="col-12 col-lg-5 mt-5">
+              <h3>{product.name}</h3>
+              <p id="product_id">Product # {product._id}</p>
 
-                            <p id="product_price">$ {product.price}</p>
-                            <div className="stockCounter d-inline">
-                                <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
+              <p id="product_price">$ {product.price}</p>
+              <div className="stockCounter d-inline">
+                <span className="btn btn-danger minus" onClick={decreaseQty}>
+                  -
+                </span>
 
-                            <input type="number" className="form-control count d-inline" value={quantity} readOnly /> 
+                <input
+                  type="number"
+                  className="form-control count d-inline"
+                  value={quantity}
+                  readOnly
+                />
 
-                            <span className="btn btn-primary plus" onClick={increaseQty}>+</span> 
-                            </div>
-                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button>
+                <span className="btn btn-primary plus" onClick={increaseQty}>
+                  +
+                </span>
+              </div>
+              <button
+                type="button"
+                id="cart_btn"
+                className="btn btn-primary d-inline ml-4"
+                disabled={product.stock === 0}
+                onClick={addToCart}
+              >
+                Add to Cart
+              </button>
 
-                            <hr />
+              <hr />
 
-                            <p>Status: <span id="stock_status" className={product.stock > 0 ? 'greenColor' : 'redColor'} >{product.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p>
+              <p>
+                Status:{" "}
+                <span
+                  id="stock_status"
+                  className={product.stock > 0 ? "greenColor" : "redColor"}
+                >
+                  {product.stock > 0 ? "In Stock" : "Out of Stock"}
+                </span>
+              </p>
 
-                            <hr />
+              <hr />
 
-                            <h4 className="mt-2">Description:</h4>
-                            <p>{product.description}</p>
-                            <hr />
-                    
-                    </div>
-                    </div>
-
-                </>
-            )}
+              <h4 className="mt-2">Description:</h4>
+              <p>{product.description}</p>
+              <hr />
+            </div>
+          </div>
         </>
-    )
-    
-}
+      )}
+    </>
+  );
+};
 
-export default ProductDetails
-
-
+export default ProductDetails;
