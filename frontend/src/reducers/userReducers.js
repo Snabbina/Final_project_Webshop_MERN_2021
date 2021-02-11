@@ -13,9 +13,14 @@ import {
   CLEAR_ERRORS,
 } from "../constants/userConstants";
 
+
+
+// Test if localStorage can be implemented like this later on:
+// export const userReducer = (  state = { user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")): {}, }, action) => {
+//   switch (action.type) {
+
 export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
-
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
      case LOAD_USER_REQUEST:
@@ -24,26 +29,26 @@ export const userReducer = (state = { user: {} }, action) => {
         isAuthenticated: false,
       };
 
+
     case LOGIN_SUCCESS:
     case REGISTER_USER_SUCCESS:
     case LOAD_USER_SUCCESS:
       return {
-          ...state,
+        ...state,
         loading: false,
         isAuthenticated: true,
-        user: action.payload
+        user: action.payload,
       };
 
-      case LOGOUT_SUCCESS:
-        return {
+    case LOGOUT_SUCCESS:
+      return {
         loading: false,
         isAuthenticated: false,
-        user: null
+        user: null,
       };
 
-
     case LOAD_USER_FAIL:
-        return {
+      return {
         loading: false,
         isAuthenticated: false,
         user: null,
@@ -54,13 +59,12 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         ...state,
         error: action.payload,
-      }
-    
+      };
 
     case LOGIN_FAIL:
     case REGISTER_USER_FAIL:
       return {
-          ...state,
+        ...state,
         loading: false,
         isAuthenticated: false,
         user: null,

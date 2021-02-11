@@ -54,14 +54,11 @@ const Home = ({ match }) => {
     dispatch(getProducts(keyword, currentPage, price, category));
   }, [dispatch, alert, error, keyword, currentPage, price, category]);
 
-  // kan man ersätta med en arrow func?
-  // const setCurrentPageNo = (pageNumber) => {
-  //   setCurrentPage(pageNumber)
-  // }
-
-  function setCurrentPageNo(pageNumber) {
-    setCurrentPage(pageNumber);
+  
+  const setCurrentPageNo = (pageNumber) => {
+    setCurrentPage(pageNumber)
   }
+
 
   let count = productsCount;
   if (keyword) {
@@ -76,10 +73,11 @@ const Home = ({ match }) => {
         <>
           <TitleTags title={"Complete Capsule Wardrobe Online"} />
 
-          <h1 id="products_heading">Newest Capsule Wardrobes</h1>
+          <h1 id="products_heading">Latest Capsule Wardrobes</h1>
 
           <section id="products" className="container mt-5">
             <div className="row">
+              
               {keyword ? (
                 <>
                   <div className="col-6 col-md-3 mt-5 mb-5">
@@ -121,22 +119,24 @@ const Home = ({ match }) => {
                           ))}
                         </ul>
                       </div>
+
+                      <hr className="my-5" />
                     </div>
                   </div>
 
                   <div className="col-6 col-md-9">
                     <div className="row">
                       {products.map((product) => (
-                        <Product key={product._id} product={product} col={3} />
+                        <Product key={product._id} product={product} col={4} />
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
                 products.map((product) => (
-                  <Product key={product._id} product={product} col={4} />
+                  <Product key={product._id} product={product} col={3} />
                 ))
-              )}
+              )}                          
             </div>
           </section>
 
@@ -149,8 +149,6 @@ const Home = ({ match }) => {
                 onChange={setCurrentPageNo}
                 nextPageText={"Next"}
                 prevPageText={"Prev"}
-                // firstPageText={"First"}
-                // lastPageText={"Last"}
                 itemClass="page-item"
                 linkClass="page/link"
               />

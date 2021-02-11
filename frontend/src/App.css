@@ -99,9 +99,11 @@ nav {
 }
 
 .card-img-top {
-  width: 200px;
+  /* width: 100%;
+  height: 100%; */
+  width: 178px;
   height: 150px;
-}
+} 
 
 .ratings {
   font-size: 1.2rem;

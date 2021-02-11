@@ -27,6 +27,7 @@ const searchHandler = (e) => {
           placeholder="Search for style, size, season"
           onChange={(e) => setKeyword(e.target.value)}
         />
+      
 
         <div className="input-group-append">
           <button id="search_btn" className="btn">

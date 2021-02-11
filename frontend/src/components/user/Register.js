@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import TitleTags from "../layouts/TitleTags";
-
-import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
+
+import TitleTags from "../layouts/TitleTags"
 import { register, clearErrors } from "../../actions/userActions";
 
 const Register = ({ history }) => {
@@ -42,7 +41,7 @@ const Register = ({ history }) => {
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
-    formData.set("avatar", avatar);
+    formData.set("image", avatar);
 
     dispatch(register(formData));
   };
@@ -93,6 +92,7 @@ const Register = ({ history }) => {
                 name="name"
                 value={name}
                 placeholder="Firstname  Lastname"
+                autocomplete="off"
                 onChange={onChange}
               />
             </div>
@@ -107,8 +107,8 @@ const Register = ({ history }) => {
                 value={email}
                 required
                 minLength="5"
-                maxLength="20"
-                className="form-control"
+                // className="form-control"
+                autocomplete="off"
                 placeholder="Email@something.com"
                 onChange={onChange}
               />
@@ -126,6 +126,7 @@ const Register = ({ history }) => {
                 maxLength="20"
                 placeholder="Min length 5 characters"
                 value={password}
+                autocomplete="off"
                 onChange={onChange}
               />
             </div>
@@ -149,6 +150,7 @@ const Register = ({ history }) => {
                     className="custom-file-input"
                     id="customFile"
                     accept="images/*"
+                    autocomplete="off"
                     onChange={onChange}
                   />
                   <label className="custom-file-label" htmlFor="customFile">

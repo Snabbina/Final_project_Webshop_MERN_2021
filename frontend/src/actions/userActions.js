@@ -30,13 +30,9 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-    console.log(data)
-    // const { data } = await axios.post(
-    //   "/api/v1/login",
-    //   { email, password },
-    //   config
-    // );
-
+    // localStorage.setItem('user', JSON.stringify(data.user))
+    // console.log(data)
+   
     dispatch({
       type: LOGIN_SUCCESS,
       payload: data.user,
@@ -119,7 +115,6 @@ export const logout = () => async (dispatch) => {
   }
 }
 
-//Clears errors is this correct?
 export const clearErrors = () => async (dispatch) => {
   dispatch({
     type: CLEAR_ERRORS,

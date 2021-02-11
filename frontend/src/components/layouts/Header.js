@@ -13,7 +13,7 @@ const Header = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  const { user, loading } = useSelector((state) => state.users);
+  const { user, loading } = useSelector((state) => state.users)
   const { cartItems } = useSelector((state) => state.cart)
 
   const logoutHandler = () => {
@@ -61,8 +61,10 @@ const Header = () => {
 
                                 <figure className="avatar avatar-nav">
                                     <img
-                                        src={user.avatar && user.avatar.url}
-                                        alt={user && user.name}
+                                    src="/images/avatar1.jpg" alt="avatar"
+                                    // alt={user && user.name}
+                                        // src={user.avatar && user.avatar.url}
+                                        // alt={user && user.name}
                                         className="rounded-circle"
                                     />
                                 </figure>

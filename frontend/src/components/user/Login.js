@@ -15,7 +15,7 @@ const Login = ({ history }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  //hade state.auth before did not work se Home,js there its state.products
+
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.users
   );
@@ -35,6 +35,8 @@ const Login = ({ history }) => {
     e.preventDefault();
     dispatch(login(email, password));
   };
+
+
 
   return (
     <>
@@ -59,6 +61,7 @@ const Login = ({ history }) => {
                     className="form-control"
                     placeholder="Email@something.com"
                     value={email}
+                    autocomplete="off"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -74,6 +77,7 @@ const Login = ({ history }) => {
                     minLength="5"
                     maxLength="20"
                     value={password}
+                    autocomplete="off"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
