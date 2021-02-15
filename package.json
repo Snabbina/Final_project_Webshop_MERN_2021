@@ -7,7 +7,8 @@
     "start": "SET node backend/server.js",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
-    "seeder": "node backend/utils/seeder.js"
+    "seeder": "node backend/utils/seeder.js",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Sabina van der Schaaf de Mare",
   "license": "ISC",
@@ -21,7 +22,9 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "jsonwebtoken": "^8.5.1",
+    "mongo-seeding": "^3.5.0",
     "mongoose": "^5.11.12",
+    "node-seeder": "^1.1.1",
     "nodemailer": "^6.4.17",
     "update": "^0.7.4",
     "validator": "^13.5.2"

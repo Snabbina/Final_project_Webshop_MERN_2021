@@ -1,7 +1,11 @@
+
 const mongoose = require('mongoose')
 
+
+
+
 const connectDatabase = () => {
-    mongoose.connect("mongodb://localhost/project-webshop", {
+    mongoose.connect(process.env.DB_CLOUD_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
@@ -11,5 +15,6 @@ const connectDatabase = () => {
 }
   
 module.exports = connectDatabase
+
 
 
