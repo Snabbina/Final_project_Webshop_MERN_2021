@@ -574,9 +574,10 @@ ul.CTAs a {
 
 .rounded-circle-logo {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-left: 30px;
+  width: 60px;
+  height: 60px;
+  margin-left: 80px;
+  border: solid 3px  #fedcba;
 }
 
 /* Products List Admin */
