@@ -13,10 +13,6 @@ import {
   CLEAR_ERRORS,
 } from "../constants/userConstants";
 
-// Test if localStorage can be implemented like this later on:
-// export const userReducer = (  state = { user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")): {}, }, action) => {
-//   switch (action.type) {
-
 export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     
