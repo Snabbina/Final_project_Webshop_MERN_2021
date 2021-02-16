@@ -11,6 +11,8 @@ import Cart from "./components/cart/Cart";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import Profile from "./components/user/Profile";
+import UpdateProfile from "./components/user/UpdateProfile";
+import NewPassword from "./components/user/NewPassword";
 import Order from "./components/orders/Order";
 import store from "./store";
 
@@ -34,8 +36,12 @@ const App = () => {
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/me/update" component={UpdateProfile} exact />
           <Route path="/me" component={Profile} exact />
           <Route path="/orders/me" component={Order} exact />
+          <Route path="/password/update" component={NewPassword} exact />
+        
+        
 
           <Route path="/cart" component={Cart} exact />
         </div>
