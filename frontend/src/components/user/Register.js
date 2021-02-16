@@ -14,7 +14,7 @@ const Register = ({ history }) => {
 
   const { name, email, password } = user;
 
-  const [avatar, setAvatar] = useState("");
+  // const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState("./images/avatar1.jpg");
 
   const alert = useAlert();
@@ -42,7 +42,7 @@ const Register = ({ history }) => {
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
-    formData.set("image", avatar);
+    // formData.set("image", avatar);
 
     dispatch(register(formData));
   };
@@ -51,12 +51,12 @@ const Register = ({ history }) => {
     if (e.target.name === "avatar") {
       const reader = new FileReader();
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
+      // reader.onload = () => {
+      //   if (reader.readyState === 2) {
+      //     setAvatarPreview(reader.result);
+      //     setAvatar(reader.result);
+      //   }
+      // };
 
       reader.readAsDataURL(e.target.files[0]);
     } else {

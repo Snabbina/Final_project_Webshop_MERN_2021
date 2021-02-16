@@ -30,7 +30,7 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-    // localStorage.setItem('user', JSON.stringify(data.user))
+   
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -39,9 +39,10 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
-      payload: error.response.data.message
+      payload: error.response.data.message,
     });
   }
+
 };
 
 //Register user
@@ -70,7 +71,7 @@ export const register = (userData) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
-      payload: error.response.data.message
+      payload: error.response.data.message,
     });
   }
 };
@@ -89,9 +90,12 @@ export const loadUser = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOAD_USER_FAIL,
-      payload: error.response.data.message
+      payload: error.response.data.message,
     });
+  
   }
+
+   
 };
 
 //Logout user
@@ -105,7 +109,7 @@ export const logout = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGOUT_FAIL,
-      payload: error.response.data.message
+      payload: error.response.data.message,
     });
   }
 };

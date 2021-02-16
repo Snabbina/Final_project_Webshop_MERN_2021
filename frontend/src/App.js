@@ -17,9 +17,11 @@ import store from "./store";
 import { loadUser } from "./actions/userActions";
 
 const App = () => {
+  
   useEffect(() => {
     store.dispatch(loadUser());
-  }, []);
+  }, [] );
+
 
   return (
     <Router>
@@ -38,7 +40,8 @@ const App = () => {
           <Route path="/cart" component={Cart} exact />
         </div>
       </div>
-      <Footer />
+          <Footer />
+       
     </Router>
   );
 };
