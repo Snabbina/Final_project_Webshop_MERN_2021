@@ -26,11 +26,11 @@ let initialState = {
   },
 
   //Is not working yet
-  users: {
-    cartItems: localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user"))
-      : {},
-  },
+  // users: {
+  //   user: localStorage.getItem("user")
+  //     ? JSON.parse(localStorage.getItem("user"))
+  //     : {},
+  // },
 };
 
 const middleware = [thunk];

@@ -151,7 +151,7 @@ const Register = ({ history }) => {
                     onChange={onChange}
                   />
                   <label className="custom-file-label" htmlFor="customFile">
-                    Choose Avatar
+                  Select avatar unavailable 
                   </label>
                 </div>
               </div>

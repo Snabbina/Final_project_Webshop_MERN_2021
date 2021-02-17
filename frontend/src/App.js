@@ -13,6 +13,7 @@ import Register from "./components/user/Register";
 import Profile from "./components/user/Profile";
 import UpdateProfile from "./components/user/UpdateProfile";
 import NewPassword from "./components/user/NewPassword";
+import ForgotPassword from "./components/user/ForgotPassword";
 import Order from "./components/orders/Order";
 import store from "./store";
 
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/me" component={Profile} exact />
           <Route path="/orders/me" component={Order} exact />
           <Route path="/password/update" component={NewPassword} exact />
+          <Route path="/password/forgot" component={ForgotPassword} exact />
         
         
 

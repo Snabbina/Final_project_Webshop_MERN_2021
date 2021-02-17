@@ -16,7 +16,7 @@ import {
 } from "../constants/userConstants";
 
 //login
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch, getState) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
@@ -42,7 +42,7 @@ export const login = (email, password) => async (dispatch) => {
       payload: error.response.data.message,
     });
   }
-
+  // localStorage.setItem("user", JSON.stringify(getState().users.data));
 };
 
 //Register user
@@ -77,7 +77,7 @@ export const register = (userData) => async (dispatch) => {
 };
 
 //Load user
-export const loadUser = () => async (dispatch) => {
+export const loadUser = () => async (dispatch, getState) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
@@ -92,10 +92,10 @@ export const loadUser = () => async (dispatch) => {
       type: LOAD_USER_FAIL,
       payload: error.response.data.message,
     });
-  
+    
   }
 
-   
+  // localStorage.setItem("users", JSON.stringify(getState().users.data));   
 };
 
 //Logout user

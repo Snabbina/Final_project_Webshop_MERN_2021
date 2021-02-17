@@ -30,6 +30,7 @@ const Cart = () => {
     dispatch(addItemToCart(id, newQty));
   };
 
+
   return (
     <>
       <TitleTags title={"Your Cart"} />
