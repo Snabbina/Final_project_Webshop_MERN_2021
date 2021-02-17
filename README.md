@@ -1,4 +1,4 @@
-# Final_project_Webshop_MERN_2021
+# Final_project_Webshop_MERN_2021 Technigo Bootcamp 20/21
 
 
 
