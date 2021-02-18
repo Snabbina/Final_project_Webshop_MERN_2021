@@ -16,7 +16,7 @@ import {
 } from "../constants/userConstants";
 
 //login
-export const login = (email, password) => async (dispatch, getState) => {
+export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
@@ -77,7 +77,7 @@ export const register = (userData) => async (dispatch) => {
 };
 
 //Load user
-export const loadUser = () => async (dispatch, getState) => {
+export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
