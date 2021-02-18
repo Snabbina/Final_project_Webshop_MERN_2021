@@ -135,10 +135,11 @@ const Cart = () => {
                 </p>
 
                 <hr />
+                {/* //This button has no functionality yet */}
                 <button id="checkout_btn" className="btn btn-primary btn-block">
                   Check out
                 </button>
-                {/* <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkoutHandler}>Check out</button> */}
+               
               </div>
             </div>
           </div>

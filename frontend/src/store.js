@@ -24,13 +24,6 @@ let initialState = {
       ? JSON.parse(localStorage.getItem("cartItems"))
       : [],
   },
-
-  //Is not working yet
-  // users: {
-  //   user: localStorage.getItem("user")
-  //     ? JSON.parse(localStorage.getItem("user"))
-  //     : {},
-  // },
 };
 
 const middleware = [thunk];

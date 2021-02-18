@@ -20,11 +20,9 @@ import store from "./store";
 import { loadUser } from "./actions/userActions";
 
 const App = () => {
-  
   useEffect(() => {
     store.dispatch(loadUser());
-  }, [] );
-
+  }, []);
 
   return (
     <Router>
@@ -42,17 +40,13 @@ const App = () => {
           <Route path="/orders/me" component={Order} exact />
           <Route path="/password/update" component={NewPassword} exact />
           <Route path="/password/forgot" component={ForgotPassword} exact />
-        
-        
 
           <Route path="/cart" component={Cart} exact />
         </div>
       </div>
-          <Footer />
-       
+      <Footer />
     </Router>
   );
 };
 
 export default App;
-

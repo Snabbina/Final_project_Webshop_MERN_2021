@@ -14,7 +14,7 @@ import {
 export const getProducts = (
   keyword = "",
   currentPage = 1,
-  price,
+  price, //not implemented yet
   category
 ) => async (dispatch) => {
   try {
@@ -34,7 +34,7 @@ export const getProducts = (
       link += `category=${category}&`;
     }
 
-    //get all data from Backend from the url when loged in
+    //get all data from Backend from the url when logged in
     const { data } = await axios.get(link);
    
     dispatch({

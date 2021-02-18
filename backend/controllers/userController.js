@@ -20,6 +20,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     name,
     email,
     password,
+    //Will be used for avatar img later on
     // avatar: {
     //   public_id: result.public_id,
     //   url: result.secure_url
@@ -52,7 +53,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
 
-  
+
 
   sendToken(user, 200, res);
 });
@@ -83,7 +84,6 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Update user profile => /api/v1/me/update
-
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,

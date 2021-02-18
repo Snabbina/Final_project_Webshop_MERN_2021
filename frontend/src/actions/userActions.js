@@ -30,7 +30,6 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-   
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -42,7 +41,6 @@ export const login = (email, password) => async (dispatch) => {
       payload: error.response.data.message,
     });
   }
-  // localStorage.setItem("user", JSON.stringify(getState().users.data));
 };
 
 //Register user
@@ -92,10 +90,7 @@ export const loadUser = () => async (dispatch) => {
       type: LOAD_USER_FAIL,
       payload: error.response.data.message,
     });
-    
   }
-
-  // localStorage.setItem("users", JSON.stringify(getState().users.data));   
 };
 
 //Logout user

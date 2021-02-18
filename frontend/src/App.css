@@ -141,11 +141,6 @@ footer {
   padding: 0.5rem 2rem;
 }
 
-#product_seller {
-  color: grey;
-  font-size: 0.9rem;
-}
-
 #stock_status {
   font-size: 1.1rem;
   font-weight: bold;
@@ -289,10 +284,6 @@ input::placeholder {
 input:valid {
   background-color: rgba(197, 240, 180, 0.255);
 }
-
-/* input:invalid {
-  background-color: #dfb0be9a;
-} */
 
 /* Login & Register */
 
@@ -456,23 +447,6 @@ input:valid {
   border-color: #fedcba;
 }
 
-/* Confirm Order */
-
-.order-confirm p,
-.order-details p {
-  margin-left: 1.5rem;
-}
-
-.update-btn {
-  background-color: #fedcba;
-  border-color: #fedcba;
-  color: black;
-}
-
-.update-btn:hover {
-  color: black;
-}
-
 /* Pagination */
 .page-item.active .page-link {
   background-color: #fedcba;
@@ -541,7 +515,6 @@ input:valid {
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
   color: rgb(3, 3, 3);
-  /* background: #232f3e; */
 }
 a[data-toggle="collapse"] {
   position: relative;
@@ -557,7 +530,6 @@ a[data-toggle="collapse"] {
 ul ul a {
   font-size: 1rem !important;
   padding-left: 30px !important;
-  /* background: #232f3e; */
 }
 
 ul.CTAs {
@@ -577,17 +549,5 @@ ul.CTAs a {
   width: 60px;
   height: 60px;
   margin-left: 80px;
-  border: solid 3px  #fedcba;
+  border: solid 3px #fedcba;
 }
-
-/* Products List Admin */
-/* #products_table .btn {
-  padding: 0.2rem 0.5rem;
-  margin-left: 0.4rem;
-} */
-
-/* Dashboard */
-
-/* .card-font-size {
-  font-size: 1.5rem;
-} */

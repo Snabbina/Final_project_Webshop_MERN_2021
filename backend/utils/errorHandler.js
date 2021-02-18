@@ -1,6 +1,6 @@
 //Error Handler Class
-//Global error handler backend
-//ErrorHandler = child  Error= parent, inherentence, 
+//Global error handler for backend
+//ErrorHandler = child  Error= parent
 
 class ErrorHandler extends Error {
   constructor(message, statusCode) {
@@ -10,6 +10,5 @@ class ErrorHandler extends Error {
     Error.captureStackTrace(this, this.constructor);
   }
 }
-
 
 module.exports = ErrorHandler
