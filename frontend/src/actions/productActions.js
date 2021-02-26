@@ -20,7 +20,9 @@ export const getProducts = (
   try {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-    let link = `http://localhost:4000/api/v1/products?`;
+    let link = `/api/v1/products?`;
+
+    // let link = `http://localhost:4000/api/v1/products?`;
 
     if (keyword) {
       link += `keyword=${keyword}&`;
@@ -55,9 +57,14 @@ export const getProductDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     //get all data from Backend from the url
+
     const { data } = await axios.get(
-      `http://localhost:4000/api/v1/product/${id}`
+      `/api/v1/product/${id}`
     );
+
+    // const { data } = await axios.get(
+    //   `http://localhost:4000/api/v1/product/${id}`
+    // );
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
