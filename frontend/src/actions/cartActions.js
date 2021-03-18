@@ -4,13 +4,20 @@ import { ADD_TO_CART, REMOVE_ITEM_CART } from "../constants/cartConstants";
 
 export const addItemToCart = (id, quantity) => async (dispatch, getState) => {
 
+
+  
   const { data } = await axios.get(
-    `/api/v1/product/${id}`
+    `https://project-webshop.herokuapp.com/api/v1/product/${id}`
   );
+
+  // const { data } = await axios.get(
+  //   `/api/v1/product/${id}`
+  // );
 
   // const { data } = await axios.get(
   //   `http://localhost:4000/api/v1/product/${id}`
   // );
+
 
   dispatch({
     type: ADD_TO_CART,

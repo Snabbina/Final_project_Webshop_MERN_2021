@@ -21,9 +21,9 @@ export const getProducts = (
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
 
-    let link = `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;    
+    // let link = `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;    
 
-    // let link = `https://project-webshop.herokuapp.com/api/v1/products?`;
+    let link = `https://project-webshop.herokuapp.com/api/v1/products?`;
 
     // let link = `http://localhost:4000/api/v1/products?`;
 
@@ -60,6 +60,12 @@ export const getProductDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     //get all data from Backend from the url
+
+    // const { data } = await axios.get(
+    //   `/api/v1/product/${id}`
+    // );
+
+    //   `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;    
 
     const { data } = await axios.get(
       `https://project-webshop.herokuapp.com/api/v1/product/${id}`
