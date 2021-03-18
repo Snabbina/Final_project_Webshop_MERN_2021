@@ -25,17 +25,17 @@ export const login = (email, password) => async (dispatch) => {
         "content-Type": "application/json",
       },
     };
-       const { data } = await axios.post(
-      `//https://project-webshop.herokuapp.com/api/v1/login`,
-      { email, password },
-      config
-    );
-
-    // const { data } = await axios.post(
-    //   `https://gracious-mcnulty-e6c162.netlify.app/api/v1/login`,
+    //    const { data } = await axios.post(
+    //   `//https://project-webshop.herokuapp.com/api/v1/login`,
     //   { email, password },
     //   config
     // );
+
+    const { data } = await axios.post(
+      `https://gracious-mcnulty-e6c162.netlify.app/api/v1/login`,
+      { email, password },
+      config
+    );
 
     // const { data } = await axios.post(
     //   `http://localhost:4000/api/v1/login`,
