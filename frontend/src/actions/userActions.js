@@ -92,9 +92,9 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    //or heroku
+    //or heroku https://project-webshop.herokuapp.com....
 
-    const { data } = await axios.get(`/api/v1/me`);
+    const { data } = await axios.get(`https://project-webshop.herokuapp.com/api/v1/me`);
 
   // const { data } = await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/me`);
 
