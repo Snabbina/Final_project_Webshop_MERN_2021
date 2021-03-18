@@ -43,9 +43,6 @@ export const login = (email, password) => async (dispatch) => {
     //   config
     // );
 
-
-    
-
     dispatch({
       type: LOGIN_SUCCESS,
       payload: data.user,
