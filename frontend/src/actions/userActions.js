@@ -26,7 +26,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      `/api/v1/login`,
+      `https://gracious-mcnulty-e6c162.netlify.app/api/v1/login`,
       { email, password },
       config
     );
@@ -64,7 +64,7 @@ export const register = (userData) => async (dispatch) => {
 
 
     const { data } = await axios.post(
-      `/api/v1/register`,
+      `https://gracious-mcnulty-e6c162.netlify.app/api/v1/register`,
       userData,
       config
     );
@@ -92,7 +92,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-  const { data } = await axios.get(`/api/v1/me`);
+  const { data } = await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/me`);
 
     // const { data } = await axios.get(`http://localhost:4000/api/v1/me`);
 
@@ -112,7 +112,7 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
 
   try {
-    await axios.get(`/api/v1/logout`);
+    await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/logout`);
 
   // try {
   //   await axios.get(`http://localhost:4000/api/v1/logout`);
