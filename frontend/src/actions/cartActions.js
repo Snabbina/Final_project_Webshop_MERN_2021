@@ -7,13 +7,13 @@ export const addItemToCart = (id, quantity) => async (dispatch, getState) => {
 
 
 
-  const { data } = await axios.get(
-    `/api/v1/product/${id}`
-  );
-
   // const { data } = await axios.get(
-  //   `https://project-webshop.herokuapp.com/api/v1/product/${id}`
+  //   `/api/v1/product/${id}`
   // );
+
+  const { data } = await axios.get(
+    `https://project-webshop.herokuapp.com/api/v1/product/${id}`
+  );
 
   // const { data } = await axios.get(
   //   `http://localhost:4000/api/v1/product/${id}`

@@ -25,11 +25,11 @@ export const login = (email, password) => async (dispatch) => {
         "content-Type": "application/json",
       },
     };
-    //    const { data } = await axios.post(
-    //   `//https://project-webshop.herokuapp.com/api/v1/login`,
-    //   { email, password },
-    //   config
-    // );
+       const { data } = await axios.post(
+      `//https://project-webshop.herokuapp.com/api/v1/login`,
+      { email, password },
+      config
+    );
 
     // const { data } = await axios.post(
     //   `https://gracious-mcnulty-e6c162.netlify.app/api/v1/login`,
@@ -37,11 +37,11 @@ export const login = (email, password) => async (dispatch) => {
     //   config
     // );
 
-    const { data } = await axios.post(
-      `http://localhost:4000/api/v1/login`,
-      { email, password },
-      config
-    );
+    // const { data } = await axios.post(
+    //   `http://localhost:4000/api/v1/login`,
+    //   { email, password },
+    //   config
+    // );
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -69,17 +69,17 @@ export const register = (userData) => async (dispatch) => {
     };
 
 
-    // const { data } = await axios.post(
-    //   `//https://project-webshop.herokuapp.com/api/v1/register`,
-    //   userData,
-    //   config
-    // );
-
     const { data } = await axios.post(
-      `http://localhost:4000/api/v1/register`,
+      `//https://project-webshop.herokuapp.com/api/v1/register`,
       userData,
       config
     );
+
+    // const { data } = await axios.post(
+    //   `http://localhost:4000/api/v1/register`,
+    //   userData,
+    //   config
+    // );
 
     dispatch({
       type: REGISTER_USER_SUCCESS,
@@ -99,11 +99,11 @@ export const loadUser = () => async (dispatch) => {
     dispatch({ type: LOAD_USER_REQUEST });
 
 
-    // const { data } = await axios.get(`https://project-webshop.herokuapp.com/api/v1/me`);
+    const { data } = await axios.get(`https://project-webshop.herokuapp.com/api/v1/me`);
 
   // const { data } = await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/me`);
 
-    const { data } = await axios.get(`http://localhost:4000/api/v1/me`);
+    // const { data } = await axios.get(`http://localhost:4000/api/v1/me`);
 
     dispatch({
       type: LOAD_USER_SUCCESS,
@@ -120,11 +120,11 @@ export const loadUser = () => async (dispatch) => {
 //Logout user
 export const logout = () => async (dispatch) => {
 
-  // try {
-  //   await axios.get(`//https://project-webshop.herokuapp.com/api/v1/logout`);
-
   try {
-    await axios.get(`http://localhost:4000/api/v1/logout`);
+    await axios.get(`//https://project-webshop.herokuapp.com/api/v1/logout`);
+
+  // try {
+  //   await axios.get(`http://localhost:4000/api/v1/logout`);
 
     dispatch({
       type: LOGOUT_SUCCESS,
