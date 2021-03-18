@@ -20,7 +20,10 @@ export const getProducts = (
   try {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-    let link = `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;
+
+    let link = `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;    
+
+    // let link = `https://project-webshop.herokuapp.com/api/v1/products?`;
 
     // let link = `http://localhost:4000/api/v1/products?`;
 
