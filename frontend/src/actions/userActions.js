@@ -92,7 +92,11 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-  const { data } = await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/me`);
+    //or heroku
+
+    const { data } = await axios.get(`/api/v1/me`);
+
+  // const { data } = await axios.get(`https://gracious-mcnulty-e6c162.netlify.app/api/v1/me`);
 
     // const { data } = await axios.get(`http://localhost:4000/api/v1/me`);
 
