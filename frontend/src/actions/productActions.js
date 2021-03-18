@@ -62,7 +62,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     //get all data from Backend from the url
 
     const { data } = await axios.get(
-      `/api/v1/product/${id}`
+      `https://project-webshop.herokuapp.com/api/v1/product/${id}`
     );
 
     // const { data } = await axios.get(
