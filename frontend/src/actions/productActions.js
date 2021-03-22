@@ -20,12 +20,7 @@ export const getProducts = (
   try {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-
-    // let link = `https://gracious-mcnulty-e6c162.netlify.app/api/v1/products?`;    
-
     let link = `https://project-webshop.herokuapp.com/api/v1/products?`;
-
-    // let link = `http://localhost:4000/api/v1/products?`;
 
     if (keyword) {
       link += `keyword=${keyword}&`;
@@ -41,7 +36,7 @@ export const getProducts = (
 
     //get all data from Backend from the url when logged in
     const { data } = await axios.get(link);
-   
+
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
       payload: data,
@@ -59,18 +54,9 @@ export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    //get all data from Backend from the url
-    // const { data } = await axios.get(
-    //   `/api/v1/product/${id}`
-    // );
- 
     const { data } = await axios.get(
       `https://project-webshop.herokuapp.com/api/v1/product/${id}`
     );
-
-    // const { data } = await axios.get(
-    //   `http://localhost:4000/api/v1/product/${id}`
-    // );
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
