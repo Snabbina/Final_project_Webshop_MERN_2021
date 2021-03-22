@@ -20,4 +20,4 @@ I wanted to build a full-scale webshop using the MERN stack. I wanted to experie
 
 
 # Link to Deployed version here:
-https://gracious-mcnulty-e6c162.netlify.app/ 
+https://project-webshop.herokuapp.com/
